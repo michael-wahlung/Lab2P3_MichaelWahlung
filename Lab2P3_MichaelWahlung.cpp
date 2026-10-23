@@ -59,7 +59,7 @@ void collatz() {
 	cout << "Resultado: El numero " << num << " tomo " << cont << " pasos para llegar a 1" << endl;
 }
 int calcular_Narcicistas(int tamanio, int num) {
-	int acum = 0, int pot = 0;
+	int acum = 0, pot = 0;
 	while (num)
 	{
 		pot = num % 10;
@@ -73,19 +73,20 @@ int calcular_Narcicistas(int tamanio, int num) {
 	return acum;
 }
 void narcicistas() {
-	int num, cont = 0, acum = 0;
+	int num, cont = 0, acum = 0,num_Guardado;
 	cout << "Ingresa un numero entero positivo: ";
 	cin >> num;
+	num_Guardado = num;
 	while (num)
 	{
 		num = num / 10;
 		cont += 1;
 	}
 	acum = calcular_Narcicistas(cont, num);
-	if (acum == num)
-		cout << num << " es un numero narcisista!";
+	if (acum == num_Guardado)
+		cout << num_Guardado << " es un numero narcisista!"<<endl;
 	else
-		cout << num << " no es un numero narcicista (la suma dio " << acum << ")" << endl;
+		cout << num_Guardado << " no es un numero narcicista (la suma dio " << acum << ")" << endl;
 }
 int main() {
 	int opcion;
