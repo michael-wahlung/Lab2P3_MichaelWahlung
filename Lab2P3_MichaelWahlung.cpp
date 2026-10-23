@@ -108,7 +108,7 @@ void montania() {
 		else
 			mitad1 = false;
 	}
-	for (int i = pos; i < 0; i--)
+	for (int i = pos; i > 0; i--)
 	{
 		if (arreglo[i] > arreglo[i - 1])
 			mitad2 = true;
