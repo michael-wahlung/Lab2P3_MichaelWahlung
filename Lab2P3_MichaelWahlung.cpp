@@ -90,20 +90,35 @@ void narcicistas() {
 }
 void montania() {
 	int arreglo[8] = {};
-	int temp;
+	int pos, mayor = 0;
 	bool mitad1 = false, mitad2 = false;
 	for (int i = 0; i < 8; i++)
 	{
-		cout << "Ingrese un numero al arreglo (pos: " << i << ")";
+		cout << "Ingrese un numero al arreglo (pos: " << i << "): ";
 		cin >> arreglo[i];
+		if (arreglo[i] > mayor) {
+			mayor = arreglo[i];
+			pos = i;
+		}
 	}
-	for (int i = 0; i < 3; i++)
+	for (int i = pos; i < 7; i++)
 	{
-		if ((arreglo[i] + 1) = arreglo[i + 1])
+		if (arreglo[i] > arreglo[i + 1])
 			mitad1 = true;
 		else
 			mitad1 = false;
 	}
+	for (int i = pos; i < 0; i--)
+	{
+		if (arreglo[i] > arreglo[i - 1])
+			mitad2 = true;
+		else
+			mitad2 = false;
+	}
+	if (mitad1 && mitad2)
+		cout << "El arreglo SI es una montania!" << endl;
+	else
+		cout << "El arreglo NO es una montania!" << endl;
 }
 int main() {
 	int opcion;
@@ -126,6 +141,7 @@ int main() {
 			collatz();
 			break;
 		case (4):
+			montania();
 			break;
 		default:
 			cout << "Ingrese una opcion valida" << endl;
