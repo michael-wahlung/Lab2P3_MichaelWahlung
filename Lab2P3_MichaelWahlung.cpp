@@ -2,19 +2,86 @@
 //
 
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+
+void figura() {
+	int tamanio;
+	cout << "Ingrese el tamanio del logo (numero impar mayor a 5): ";
+	cin >> tamanio;
+	while (tamanio % 2 == 0) {
+		cout << "El numero no puede ser par" << endl;
+		cout << "Ingrese el tamanio del logo (numero impar mayor a 5): ";
+	}
+	for (int i = 0; i < tamanio; i++) {
+		for (int j = 0; j < tamanio; j++) {
+			if (i == j) {
+				cout << "*";
+			}
+			else if (j == 0) {
+				cout << "*";
+			}
+			else if (j == tamanio - 1) {
+				cout << "*";
+			}
+			else if (i + j == tamanio - 1) {
+				cout << "*";
+			}
+			else {
+				cout << " ";
+			}
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+void collatz() {
+	int num,cont;
+	cout << "Ingresa un numero positivo entero: ";
+	cin >> num;
+	while (num <= 0) {
+		cout << "Favor seguir instrucciones";
+		cout << "Ingresa un numero positivo entero: ";
+		cin >> num;
+	}
+	while (num!=1){
+		if (num%2==0)
+		{
+			num = num / 2;
+			cont += 1;
+		}
+		else if (num%2!=0)
+		{
+			num = (num * 3) + 1;
+			cont += 1;
+		}
+	}
+	cout << "Se a repetido " << cont << " cantidad de veces";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+int main() {
+	int opcion;
+	do {
+		cout << "1. Visual Studio Logo" << endl;
+		cout << "2. Numeros narcicistas" << endl;
+		cout << "3. Conjetura de collatz" << endl;
+		cout << "4. Arreglo montania" << endl;
+		cout << "0. Salir" << endl;
+		cout << "Ingrese una opcion de la lista: " << endl;
+		cin >> opcion;
+		switch (opcion) {
+		case (1):
+			figura();
+			break;
+		case (2):
+			break;
+		case (3):
+			break;
+		case (4):
+			break;
+		default:
+			cout << "Ingrese una opcion valida";
+			break;
+		}
+	} while (opcion);
+}
