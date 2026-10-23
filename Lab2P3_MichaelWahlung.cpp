@@ -58,9 +58,22 @@ void collatz() {
 	}
 	cout << "Resultado: El numero " << num << " tomo " << cont << " pasos para llegar a 1" << endl;
 }
+int calcular_Narcicistas(int tamanio, int num) {
+	int acum = 0, int pot;
+	while (num)
+	{
+		for (int i = 0; i < tamanio; i++)
+		{
+			pot = (num % 10) * (num % 10);
+		}
+		acum += pot;
+		num = num / 10;
+	}
+	return acum;
+}
 void narcicistas() {
 	int num, cont = 0, acum = 0;
-	cout << "Ingresa un numero entero positivo";
+	cout << "Ingresa un numero entero positivo: ";
 	cin >> num;
 	while (num)
 	{
@@ -68,15 +81,10 @@ void narcicistas() {
 		cont += 1;
 	}
 	acum = calcular_Narcicistas(cont, num);
-	cout << num << " es un numero narcisista (la suma dio " << acum << ")";
-}
-int calcular_Narcicistas(int tamanio, int num) {
-	int acum = 0;
-	while (num)
-	{
-		acum = (num % 10) * tamanio;
-	}
-	return acum;
+	if (acum == num)
+		cout << num << " es un numero narcisista!";
+	else
+		cout << num << " no es un numero narcicista (la suma dio " << acum << ")" << endl;
 }
 int main() {
 	int opcion;
@@ -93,6 +101,7 @@ int main() {
 			figura();
 			break;
 		case (2):
+			narcicistas();
 			break;
 		case (3):
 			collatz();
