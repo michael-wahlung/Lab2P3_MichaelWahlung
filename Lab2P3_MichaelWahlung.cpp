@@ -36,29 +36,42 @@ void figura() {
 	cout << endl;
 }
 void collatz() {
-	int num,cont;
-	cout << "Ingresa un numero positivo entero: ";
+	int num, cont = 0;
+	cout << "Ingresa un numero positivo mayor a 0: ";
 	cin >> num;
 	while (num <= 0) {
-		cout << "Favor seguir instrucciones";
+		cout << "Favor seguir instrucciones" << endl;
 		cout << "Ingresa un numero positivo entero: ";
 		cin >> num;
 	}
-	while (num!=1){
-		if (num%2==0)
+	while (num != 1) {
+		if (num % 2 == 0)
 		{
 			num = num / 2;
 			cont += 1;
 		}
-		else if (num%2!=0)
+		else if (num % 2 != 0)
 		{
 			num = (num * 3) + 1;
 			cont += 1;
 		}
 	}
-	cout << "Se a repetido " << cont << " cantidad de veces";
+	cout << "Resultado: El numero " << num << " tomo " << cont << " pasos para llegar a 1" << endl;
 }
+void narcicistas() {
+	int num, acum = 0,cont=0;
+	cout << "Ingresa un numero entero positivo";
+	cin >> num;
+	while (num)
+	{
+		acum = num % 10;
+		num = num / 10;
+		cont+=1;
+	}
+}
+int calcular_Narcicistas() {
 
+}
 int main() {
 	int opcion;
 	do {
@@ -76,11 +89,12 @@ int main() {
 		case (2):
 			break;
 		case (3):
+			collatz();
 			break;
 		case (4):
 			break;
 		default:
-			cout << "Ingrese una opcion valida";
+			cout << "Ingrese una opcion valida" << endl;
 			break;
 		}
 	} while (opcion);
