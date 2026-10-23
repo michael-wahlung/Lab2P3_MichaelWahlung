@@ -59,12 +59,13 @@ void collatz() {
 	cout << "Resultado: El numero " << num << " tomo " << cont << " pasos para llegar a 1" << endl;
 }
 int calcular_Narcicistas(int tamanio, int num) {
-	int acum = 0, int pot;
+	int acum = 0, int pot = 0;
 	while (num)
 	{
+		pot = num % 10;
 		for (int i = 0; i < tamanio; i++)
 		{
-			pot = (num % 10) * (num % 10);
+			pot = pot * pot;
 		}
 		acum += pot;
 		num = num / 10;
