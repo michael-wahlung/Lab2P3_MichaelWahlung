@@ -63,9 +63,9 @@ int calcular_Narcicistas(int tamanio, int num) {
 	while (num)
 	{
 		pot = num % 10;
-		for (int i = 0; i < tamanio; i++)
+		for (int i = 0; i < tamanio - 1; i++)
 		{
-			pot = pot * pot;
+			pot = pot * (num % 10);
 		}
 		acum += pot;
 		num = num / 10;
@@ -73,7 +73,7 @@ int calcular_Narcicistas(int tamanio, int num) {
 	return acum;
 }
 void narcicistas() {
-	int num, cont = 0, acum = 0,num_Guardado;
+	int num, cont = 0, acum, num_Guardado;
 	cout << "Ingresa un numero entero positivo: ";
 	cin >> num;
 	num_Guardado = num;
@@ -82,11 +82,28 @@ void narcicistas() {
 		num = num / 10;
 		cont += 1;
 	}
-	acum = calcular_Narcicistas(cont, num);
+	acum = calcular_Narcicistas(cont, num_Guardado);
 	if (acum == num_Guardado)
-		cout << num_Guardado << " es un numero narcisista!"<<endl;
+		cout << num_Guardado << " es un numero narcisista!" << endl;
 	else
 		cout << num_Guardado << " no es un numero narcicista (la suma dio " << acum << ")" << endl;
+}
+void montania() {
+	int arreglo[8] = {};
+	int temp;
+	bool mitad1 = false, mitad2 = false;
+	for (int i = 0; i < 8; i++)
+	{
+		cout << "Ingrese un numero al arreglo (pos: " << i << ")";
+		cin >> arreglo[i];
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		if ((arreglo[i] + 1) = arreglo[i + 1])
+			mitad1 = true;
+		else
+			mitad1 = false;
+	}
 }
 int main() {
 	int opcion;
